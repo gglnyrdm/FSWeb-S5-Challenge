@@ -17,6 +17,36 @@ const Card = (makale) => {
   //   </div>
   // </div>
   //
+  const cardDiv = document.createElement("div");
+  cardDiv.className = "card";
+
+  const headDiv = document.createElement("div");
+  headDiv.className = "headline";
+  headDiv.textContent = makale.anabaslik;
+  cardDiv.append(headDiv);
+
+  const autDiv = document.createElement("div");
+  autDiv.className = "author";
+  cardDiv.append(autDiv);
+
+  const imgDiv = document.createElement("div");
+  imgDiv.className = "img-container";
+  autDiv.append(imgDiv);
+
+  const img = document.createElement("img");
+  img.setAttribute("src", makale.yazarFoto);
+  imgDiv.append(img);
+
+  const span = document.createElement("span");
+  span.textContent = makale.yazarAdi;
+  autDiv.append(span);
+
+  cardDiv.addEventListener("click",() => {
+    console.log(makale.anabaslik);
+  });
+  
+
+  return cardDiv;
 }
 
 const cardEkleyici = (secici) => {
@@ -28,6 +58,7 @@ const cardEkleyici = (secici) => {
   // Card bileşenini kullanarak yanıttaki her makale nesnesinden bir kart oluşturun.
   // Her cardı, fonksiyona iletilen seçiciyle eşleşen DOM'daki öğeye ekleyin.
   //
+  
 }
 
 export { Card, cardEkleyici }

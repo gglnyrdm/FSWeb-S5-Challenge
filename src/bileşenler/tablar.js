@@ -1,3 +1,5 @@
+const { response } = require("msw");
+
 const Tablar = (konu) => {
   // GÖREV 3
   // ---------------------
@@ -13,6 +15,16 @@ const Tablar = (konu) => {
   //   <div class="tab">teknoloji</div>
   // </div>
   //
+  const topDiv = document.createElement("div");
+  topDiv.className = "topics";
+
+  konu.forEach(item => {
+    const tabDiv = document.createElement("div");
+    tabDiv.className = "tab";
+    tabDiv.textContent = item;
+    topDiv.append(tabDiv);
+  });
+  return topDiv;
 }
 
 const tabEkleyici = (secici) => {
@@ -23,6 +35,8 @@ const tabEkleyici = (secici) => {
   // Yanıtın içindeki konu dizisini bulun ve Tablar bileşenini kullanarak tabları oluşturun.
   // Tabları, fonksiyona iletilen seçiciyle eşleşen DOM'daki öğeye ekleyin.
   //
-}
+
+  
+ }
 
 export { Tablar, tabEkleyici }
